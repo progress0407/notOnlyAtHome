@@ -33,4 +33,4 @@ userSto.loginUser(id, passwd,
     ()=>{
         console.log();
     }
-);
+); 
