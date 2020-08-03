@@ -1,3 +1,4 @@
+// 재료
 class UserStorage {
     loginUser(id, passwd, onSuccess, onError) {
         setTimeout( () => {
@@ -22,6 +23,7 @@ class UserStorage {
     }
 }
 
+// 만들기..
 var id = prompt('enter your id');
 var passwd = prompt('and your password, also');
 
@@ -32,5 +34,32 @@ userSto.loginUser(id, passwd,
     },
     ()=>{
         console.log();
+    }
+); 
+
+// 정답
+
+const userStorage = new UserStorage();
+const id = prompt('enter your id');
+const passwd = prompt('and your password, also');
+
+userStorage.loginUser(
+    id, 
+    passwd,
+    user => {
+        userStorage.getRoles(
+            user,
+            userWithRole => {
+                alert(
+                    `Hello ${userWithRole.name}, you have a ${userWithRole.role} role`
+                );
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    },
+    error => {
+        console.log(error);
     }
 ); 
